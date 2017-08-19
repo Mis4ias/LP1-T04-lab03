@@ -15,14 +15,14 @@ void transpose  (vector<vector<int> > &vtr1,vector<vector<int> > &vtr2,int l,int
 
 
 }
-bool quadrada(vector<vector<int> > vtr1,int l,int c){
+bool quadrada(vector<vector<int> > &vtr1,int l,int c){
 	if(l==c){
 		return true;
 	}else {
 		return false;
 	}
 }
-bool simetrica(vector<vector<int> >vtr1,int l,int c){
+bool simetrica(vector<vector<int> > &vtr1,int l,int c){
 	if(l==c){
 		for (int i = 0; i < l ; ++i){
 			for (int j = 0; j < c; ++j){
@@ -39,6 +39,28 @@ bool simetrica(vector<vector<int> >vtr1,int l,int c){
 		return false;
 	}
 	return true;
+}
+void triangular(vector<vector<int> > &vtr1,vector<vector<int> > &vtr2,int l,int c){
+	for (int i = 0; i < l; ++i){
+		for (int j = 0; j < c; ++j){
+			vtr2[i][j]=0;	
+
+
+		}
+	}
+
+	if (simetrica(	vtr1,l,c)==true){
+		for ( int i = 0; i < l; i++){
+			for (int j = 0; j = i; ++j){
+				vtr2[i][j]=vtr1[i][j];
+			}
+			
+		}
+	}
+	
+	else{
+		cout<<"Não é possivel tranformar"<<endl;
+	}
 }
 
 int main (){
